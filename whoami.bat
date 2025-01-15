@@ -1,8 +1,15 @@
 @echo off
-:: Run `whoami` and save the result to a file in C:\Windows\Tasks
-whoami > C:\Windows\Tasks\whoami_result.txt
+:: Get the path to the user's Downloads folder
+set "download_folder=%USERPROFILE%\Downloads"
 
-:: Optional: Notify the user
-echo The result has been saved to C:\Windows\Tasks\whoami_result.txt
+:: Run `whoami` and save the result to a file in the Downloads folder
+whoami > "%download_folder%\whoami_result.txt"
 
+:: Display the result to the user
+whoami
+
+:: Notify the user about the saved file
+echo The result has been saved to %download_folder%\whoami_result.txt
+
+:: Pause to keep the window open
 pause
